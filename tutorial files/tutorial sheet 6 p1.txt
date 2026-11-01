@@ -1,0 +1,55 @@
+
+import java.util.Scanner;
+
+public class CashRegister {  
+    private int itemCount;
+    private double totalPrice;
+    public CashRegister() {
+        itemCount = 0;
+        totalPrice = 0.0;
+    }
+    public CashRegister(int count, double price) {
+        itemCount = count;
+        totalPrice = price;
+    }
+    public void addItem(double price) {
+        itemCount++;
+        totalPrice += price;
+    }
+    public void clear() {
+        itemCount = 0;
+        totalPrice = 0.0;
+    }
+    public int getItemCount() {
+        return itemCount;
+    }
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        CashRegister register = new CashRegister();
+
+        System.out.print("Enter the number of items: ");
+        int n = input.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Enter price of item " + i + ": ");
+            double price = input.nextDouble();
+
+            register.addItem(price);
+        }
+        System.out.println("\nCash Register Summary");
+        System.out.println("Number of items: " + register.getItemCount());
+        System.out.println("Total price: " + register.getTotalPrice());
+    
+        register.clear();
+
+        System.out.println("\nAfter clearing:");
+        System.out.println("Number of items: " + register.getItemCount());
+        System.out.println("Total price: " + register.getTotalPrice());
+
+      
+    }
+}
